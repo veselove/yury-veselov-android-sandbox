@@ -20,7 +20,7 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etUsername"
-            android:layout_width="match_parent"
+            android:layout_width="250dp"
             android:layout_height="match_parent"
             android:ems="15" />
 
@@ -40,7 +40,7 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etPassword"
-            android:layout_width="match_parent"
+            android:layout_width="250dp"
             android:layout_height="match_parent"
             android:inputType="textPassword"
             android:ems="15" />
@@ -61,7 +61,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="@+id/btnLogin"
         app:layout_constraintEnd_toEndOf="@+id/textInputLayout2"
         app:layout_constraintStart_toStartOf="@+id/textInputLayout2"
         app:layout_constraintTop_toTopOf="@+id/btnLogin" />

@@ -1,17 +1,14 @@
 package com.veselove.myapplication211021.ex_001_flow
 
 import android.os.Bundle
-import android.os.PersistableBundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
 import com.google.android.material.snackbar.Snackbar
-import com.veselove.myapplication211021.R
 import com.veselove.myapplication211021.databinding.Ex001FlowBinding
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.launch
 
 class FlowActivity : AppCompatActivity()  {
 
@@ -21,8 +18,8 @@ class FlowActivity : AppCompatActivity()  {
     private val viewModel: FlowMainViewModel by viewModels()
 
     @ExperimentalCoroutinesApi
-    override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
-        super.onCreate(savedInstanceState, persistentState)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
         binding = Ex001FlowBinding.inflate(layoutInflater)
         setContentView(binding.root)  //R.layout.ex_001_flow
 
@@ -42,6 +39,7 @@ class FlowActivity : AppCompatActivity()  {
                             "Successfully logged in",
                             Snackbar.LENGTH_LONG
                         ).show()
+                        binding.progressBar.isVisible = false
                     }
                     is FlowMainViewModel.LoginUiState.Error -> {
                         Snackbar.make(
@@ -49,6 +47,7 @@ class FlowActivity : AppCompatActivity()  {
                             it.message,
                             Snackbar.LENGTH_LONG
                         ).show()
+                        binding.progressBar.isVisible = false
                     }
                     is FlowMainViewModel.LoginUiState.Loading -> {
                         binding.progressBar.isVisible = true
